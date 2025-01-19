@@ -1,0 +1,87 @@
+.laptops-admin {
+    margin: 20px;
+    width: 90%; /* Set width to 90% */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .laptop-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #ccc; /* Border for the mobile item */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .laptop-item img {
+    width: 150px; /* Large image size */
+    height: 150px;
+    object-fit: contain; /* Maintain aspect ratio and fill the box */
+    border-radius: 8px;
+  }
+  
+  .laptop-details {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .laptop-details h3 {
+    margin: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .laptop-details p {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .laptop-details .label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .update-button {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .delete-button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-laptop-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+  }
+  

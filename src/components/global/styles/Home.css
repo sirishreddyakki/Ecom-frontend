@@ -1,0 +1,75 @@
+.home {
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-nav {
+    height: 20vh;
+    width: 100%;
+    background-color: #3498db; /* Bold blue for nav bar */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-body {
+    flex: 1; /* This ensures it takes the remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.home-body-content {
+    width: 100%;
+    max-width: 800px; /* Limit the width for a more compact design */
+    padding: 40px;
+    background-color: white; /* White background to make content pop */
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.home-body h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.home-body h3 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.home-body-right-link {
+    display: inline-block;
+    height: 50px;
+    width: 220px;
+    line-height: 50px;
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    background-color: #e74c3c; /* Red color for bold contrast */
+    transition: all 0.3s ease-in-out;
+    margin: 15px 0;
+    padding: 0 20px;
+    font-weight: 600;
+}
+
+.home-body-right-link:hover {
+    background-color: #f39c12; /* Yellow on hover */
+    color: white;
+    transform: scale(1.1); /* Slightly enlarges the button */
+}

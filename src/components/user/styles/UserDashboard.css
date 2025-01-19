@@ -1,0 +1,63 @@
+/* Container for the entire dashboard */
+.dashboard-container {
+    background-color: #f4f4f9; /* Light background */
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Title of the dashboard */
+  .dashboard-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Description below the title */
+  .dashboard-description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  /* Container for the category links */
+  .categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Category card style */
+  .category-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    width: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Title inside each card */
+  .category-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Hover effect for the cards */
+  .category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Mobile responsiveness: stack cards on smaller screens */
+  @media (max-width: 768px) {
+    .categories-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
