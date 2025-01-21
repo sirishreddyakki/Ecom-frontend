@@ -1,15 +1,23 @@
+ /* General Styling */
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    overflow: hidden; /* Prevents body scroll */
+    background-color: #3F403F;
+}
 .admin-dashboard {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f7f9fc;
-    font-family: Arial, sans-serif;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .admin-dashboard-container {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #E5F4E3;
     padding: 40px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -31,7 +39,9 @@
 
 .admin-dashboard-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -41,14 +51,14 @@
     font-size: 1.1rem;
     font-weight: 600;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #003F91;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .admin-dashboard-link:hover {
-    background-color: #45a049;
+    background-color: #5DA9E9;
     transform: translateY(-2px);
 }
 

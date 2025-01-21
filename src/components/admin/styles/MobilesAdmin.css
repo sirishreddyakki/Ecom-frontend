@@ -1,87 +1,128 @@
+ /* General Styling */
+ body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  overflow: hidden; /* Prevents body scroll */
+  background-color: #3F403F;
+}
+
+/* Navbar */
+.nav-bar {
+  width: 100%;
+  background-color: #5B8E7D;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.nav-bar-title {
+  font-size: xx-large;
+  font-weight: bolder;
+  color: #28262C;
+}
+
+.nav-bar-btns {
+  display: flex;
+  gap: 20px;
+}
+
+.addmobile-btn,
+.cart-btn,
+.logout-btn {
+  height: 50px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 10px;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
+
+.addmobile-btn {
+  background-color: #14248A;
+}
+
+.cart-btn {
+  background-color: #84A59D;
+}
+
+.logout-btn {
+  background-color: #eb3e3e;
+}
+
+/* Main Content */
 .mobiles-admin {
-    margin: 20px;
-    width: 90%; /* Set width to 90% */
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .mobile-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid #ccc; /* Border for the mobile item */
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .mobile-item img {
-    width: 150px; /* Large image size */
-    height: 150px;
-    object-fit: contain; /* Maintain aspect ratio and fill the box */
-    border-radius: 8px;
-  }
-  
-  .mobile-details {
-    flex: 1;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .mobile-details h3 {
-    margin: 10px 0;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .mobile-details p {
-    font-size: 18px;
-    margin: 5px 0;
-  }
-  
-  .mobile-details .label {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .update-button {
-    align-self: center;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .delete-button {
-    padding: 10px 20px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .add-mobile-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #008CBA;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
+  margin: 0 auto;
+  margin-top: 10vh; /* Start below the fixed navbar */
+  width: 90vw;
+  height: calc(100vh - 10vh); /* Fills the remaining screen height */
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #ABDAE1; /* Optional: Adds a white background */
+}
+
+/* Mobile Item */
+.mobile-item {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border: 2px solid red; */
+  margin-bottom: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #F4FAFF;
+}
+
+img {
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
+}
+
+.mobile-item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-item-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.update-btn,
+.delete-btn {
+  height: 50px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 10px;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
+
+.update-btn {
+  background-color: #022B3A;
+}
+
+.delete-btn {
+  background-color: #BF3100;
+}

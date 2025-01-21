@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './styles/AddMobile.css';
+import './styles/AddMobile.css';  // Ensure correct import path
 
 const AddMobile = () => {
   const [mobile, setMobile] = useState({
@@ -33,6 +33,8 @@ const AddMobile = () => {
         },
       });
       alert("Mobile added successfully!");
+      // Redirect to mobile listing page after success
+      window.location.href = '/admin/mobiles'; // Replace with your actual page URL
     } catch (error) {
       alert("Failed to add mobile: " + error.response?.data || error.message);
     }

@@ -1,63 +1,67 @@
-/* Container for the entire dashboard */
-.dashboard-container {
-    background-color: #f4f4f9; /* Light background */
-    padding: 40px 20px;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  /* Title of the dashboard */
-  .dashboard-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Description below the title */
-  .dashboard-description {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 40px;
-  }
-  
-  /* Container for the category links */
-  .categories-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  /* Category card style */
-  .category-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    width: 200px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  /* Title inside each card */
-  .category-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Hover effect for the cards */
-  .category-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Mobile responsiveness: stack cards on smaller screens */
-  @media (max-width: 768px) {
-    .categories-container {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
-  
+ /* General Styling */
+ body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  overflow: hidden; /* Prevents body scroll */
+  background-color: #3F403F;
+}
+.user-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.user-dashboard-container {
+  text-align: center;
+  background-color: #E5F4E3;
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.user-dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3a4b;
+  margin-bottom: 20px;
+}
+
+.user-dashboard-greeting {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.user-dashboard-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.user-dashboard-link {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #003F91;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.user-dashboard-link:hover {
+  background-color: #5DA9E9;
+  transform: translateY(-2px);
+}
+
+.user-dashboard-link:active {
+  transform: translateY(1px);
+}

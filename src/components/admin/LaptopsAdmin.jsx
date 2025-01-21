@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import './styles/LaptopsAdmin.css'; // Use same styles as MobilesAdmin
+import { Link, useNavigate } from "react-router-dom";
+import "./styles/LaptopsAdmin.css";
 
-const LaptopAdmin = () => {
+const LaptopsAdmin = () => {
   const [laptops, setLaptops] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLaptops = async () => {
@@ -15,7 +16,7 @@ const LaptopAdmin = () => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        setLaptops(response.data);  // Set fetched laptops data
+        setLaptops(response.data); // Set the fetched laptop data
       } catch (err) {
         setError("Failed to fetch laptops.");
         console.error(err);
@@ -39,58 +40,77 @@ const LaptopAdmin = () => {
     }
   };
 
-  // Function to render images
   const renderImage = (laptop) => {
     if (laptop.imageData) {
       return (
         <img
           src={`data:${laptop.imageType};base64,${laptop.imageData}`}
-          alt={laptop.pname}
+          alt={laptop.pname || "Laptop"}
         />
       );
     }
     return <p>Image not available</p>;
   };
+  const handleLogout = () =>{
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
 
   return (
-    <div className="laptops-admin">
-      {error && <p>{error}</p>}
-      {laptops.length > 0 ? (
-        <div>
-          {laptops.map((laptop) => (
-            <div key={laptop.pid} className="laptop-item">
-              {/* Image on the left */}
-              <div>{renderImage(laptop)}</div>
-
-              {/* Details in the center */}
-              <div className="laptop-details">
-                <h3>{laptop.pname}</h3>
-                <p><span className="label">Cost:</span> ₹{laptop.pcost}</p>
-                <p><span className="label">Quantity:</span> {laptop.pqty}</p>
-              </div>
-
-              {/* Button group */}
-              <div className="button-group">
-                <Link to={`/admin/laptops/update/${laptop.pid}`} className="update-button">
-                  Update
-                </Link>
-                <button onClick={() => handleDelete(laptop.pid)} className="delete-button">
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
+    <>
+      <div className="laptop-adminpage">
+        <div className="nav-bar">
+          <p className="nav-bar-title">Ecommerce App</p>
+          <div className="nav-bar-btns">
+            <Link to="/admin/laptops/add" className="addlaptop-btn">
+              Add Laptop
+            </Link>
+            <button className="cart-btn">Cart</button>
+            <button className="logout-btn" onClick={handleLogout}>Logout</button>
+          </div>
         </div>
-      ) : (
-        <p>Loading laptops...</p>
-      )}
 
-      {/* Add Laptop button */}
-      <Link to="/admin/laptops/add" className="add-laptop-button">
-        Add Laptop
-      </Link>
-    </div>
+        <div className="laptops-admin">
+          {error ? (
+            <p>{error}</p>
+          ) : laptops.length > 0 ? (
+            <div className="laptop-container">
+              {laptops.map((laptop) => (
+                <div key={laptop.pid} className="laptop-item">
+                  <div className="laptop-item-img">{renderImage(laptop)}</div>
+                  <div className="laptop-item-details">
+                    <h3>{laptop.pname}</h3>
+                    <p>
+                      <span>Cost:</span> <strong>₹{laptop.pcost}</strong>
+                    </p>
+                    <p>
+                      <span>Quantity:</span> <strong>{laptop.pqty}</strong>
+                    </p>
+                  </div>
+                  <div className="laptop-item-buttons">
+                    <Link
+                      to={`/admin/laptops/update/${laptop.pid}`}
+                      className="update-btn"
+                    >
+                      Update
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(laptop.pid)}
+                      className="delete-btn"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No laptops available.</p>
+          )}
+        </div>
+      </div>
+    </>
   );
 };
 
-export default LaptopAdmin;
+export default LaptopsAdmin;

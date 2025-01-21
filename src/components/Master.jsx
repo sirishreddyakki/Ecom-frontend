@@ -14,6 +14,9 @@ import MobilesAdmin from "./admin/MobilesAdmin";
 import LaptopsAdmin from "./admin/LaptopsAdmin";
 import AddMobile from "./admin/AddMobile";
 import AddLaptop from "./admin/AddLaptop";
+import UpdateMobile from "./admin/UpdateMobile";
+import UpdateLaptop from "./admin/UpdateLaptop";
+import UserCart from "./user/UserCart";
 
 const  Master= () =>{
     return(
@@ -35,6 +38,10 @@ const  Master= () =>{
                     <Route path="/admin/laptops" element={<LaptopsAdmin></LaptopsAdmin>}></Route>
                     <Route path="/admin/mobiles/add" element={<AddMobile></AddMobile>}></Route>
                     <Route path="/admin/laptops/add" element={<AddLaptop></AddLaptop>}></Route>
+                    <Route path="/admin/mobiles/update/:id" element={<UpdateMobile></UpdateMobile>} />
+                    <Route path="/admin/laptops/update/:pid" element={<UpdateLaptop></UpdateLaptop>} />
+
+                    <Route path="/user/cart" element={<UserCart></UserCart>}></Route>
 
                 </Routes>
            </BrowserRouter>

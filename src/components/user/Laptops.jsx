@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import './styles/Laptops.css';  // Import separate styling file if necessary
+import { useNavigate } from "react-router-dom";
+import "./styles/Laptops.css"; // Import styling
 
 const Laptops = () => {
   const [laptops, setLaptops] = useState([]);
   const [error, setError] = useState("");
   const [cart, setCart] = useState([]);
-  const [cartVisible, setCartVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLaptops = async () => {
@@ -22,14 +23,31 @@ const Laptops = () => {
     };
 
     fetchLaptops();
+
+    // Load cart from localStorage
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(savedCart);
   }, []);
 
-  // Add laptop to the cart
   const addToCart = (laptop) => {
-    setCart((prevCart) => [...prevCart, laptop]);
+    setCart((prevCart) => {
+      const existingIndex = prevCart.findIndex((item) => item.pid === laptop.pid);
+      if (existingIndex !== -1) {
+        const updatedCart = [...prevCart];
+        updatedCart[existingIndex].quantity += 1;
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        return updatedCart;
+      }
+      const updatedCart = [...prevCart, { ...laptop, quantity: 1 }];
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return updatedCart;
+    });
   };
 
-  // Function to render images
+  const toggleCart = () => {
+    navigate("/user/cart");
+  };
+
   const renderImage = (laptop) => {
     if (laptop.imageData) {
       return (
@@ -43,17 +61,14 @@ const Laptops = () => {
     return <p>Image not available</p>;
   };
 
-  // Cart toggle visibility
-  const toggleCart = () => {
-    setCartVisible((prevState) => !prevState);
-  };
-
   return (
     <div className="laptops-container">
-      {/* Cart Button */}
-      <div className="cart-container" onClick={toggleCart}>
-        <span className="cart-icon">🛒</span>
-        <span className="cart-count">{cart.length}</span>
+      <div className="nav-bar">
+        <p className="nav-bar-title">Ecommerce App</p>
+        <div className="nav-bar-cart" onClick={toggleCart}>
+          <span className="cart-icon">CART🛒</span>
+          <span className="cart-count">{cart.length}</span>
+        </div>
       </div>
 
       <h1>Laptops</h1>
@@ -65,7 +80,7 @@ const Laptops = () => {
               {renderImage(laptop)}
               <div className="laptop-details">
                 <h3>{laptop.pname}</h3>
-                <p>Cost: ${laptop.pcost}</p>
+                <p>Cost: ₹{laptop.pcost}</p>
                 <p>Quantity: {laptop.pqty}</p>
               </div>
               <button
@@ -79,30 +94,6 @@ const Laptops = () => {
         </div>
       ) : (
         <p>Loading laptops...</p>
-      )}
-
-      {/* Cart Modal */}
-      {cartVisible && (
-        <div className="cart-modal">
-          <h2>Your Cart</h2>
-          <div className="cart-items">
-            {cart.length === 0 ? (
-              <p>No items in cart</p>
-            ) : (
-              cart.map((laptop, index) => (
-                <div key={index} className="cart-item">
-                  <span>{laptop.pname}</span>
-                  <span>Cost: ₹{laptop.pcost}</span>
-                </div>
-              ))
-            )}
-          </div>
-          <div className="cart-footer">
-            <button onClick={toggleCart} className="close-cart-btn">
-              Close
-            </button>
-          </div>
-        </div>
       )}
     </div>
   );
